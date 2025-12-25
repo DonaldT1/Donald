@@ -1,0 +1,98 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #003366;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+h1, h2, h3 {
+    color: #003366;
+}
+
+a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+button, .btn {
+    background-color: #003366;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover, .btn:hover {
+    background-color: #0055aa;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+
+
+.menu-bar {
+    background-color: #f2f2f2;
+    display: flex;
+    padding: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.menu-bar button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px;
+    font-size: 14px;
+}
+
+.menu-bar img {
+    width: 48px;
+    height: 48px;
+}
+
+.background-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-top: 10px;
+}
+
+.footer-label {
+    position: absolute;
+    bottom: 20px;
+    left: 30px;
+    font-size: 24px;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    padding: 10px;
+    font-weight: bold;
+}

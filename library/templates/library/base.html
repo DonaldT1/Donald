@@ -1,0 +1,94 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <title>Library Management System</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: Tahoma, Geneva, Verdana, sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white">
+
+<!-- Top menu -->
+<div class="flex items-center bg-gray-100 border-b border-gray-300 px-2 select-none" style="height: 32px;">
+  <div class="text-xs font-semibold text-blue-700 mr-4">Main Form</div>
+  <nav class="flex space-x-3 text-xs text-gray-700 font-semibold">
+    <a class="hover:underline" href="#">Master Entry</a>
+    <a class="hover:underline" href="#">Users</a>
+    <a class="hover:underline" href="#">Small Control</a>
+    <a class="hover:underline" href="#">Transaction</a>
+    <a class="hover:underline" href="#">Records</a>
+    <a class="hover:underline" href="#">Tools</a>
+    <a class="hover:underline" href="#">About</a>
+  </nav>
+</div>
+
+<!-- Top bar with welcome and logout -->
+<div class="flex justify-end items-center bg-gray-100 border-b border-gray-300 px-4 py-2 text-sm">
+  {% if user.is_authenticated %}
+    <span class="text-gray-700 mr-2">Welcome, <strong>{{ user.username }}|</strong></span>
+    <form action="{% url 'logout' %}" method="POST" class="inline">
+      {% csrf_token %}
+      <button type="submit" class="text-blue-600 hover:underline font-semibold">Logout</button>
+    </form>
+  {% else %}
+    <a href="{% url 'login' %}" class="text-blue-600 hover:underline font-semibold">Login</a>
+  {% endif %}
+</div>
+
+<!-- Toolbar with clickable icons -->
+<div class="flex bg-white border-b border-gray-300 px-2 py-1 space-x-6 select-none" style="height: 72px;">
+  <a href="{% url 'registration' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/e00d6b52-4706-483b-7368-6e4d16b84bdb.jpg" height="32" width="32" class="mb-1"/>
+    Registration
+  </a>
+  <a href="{% url 'books' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/a0ce8a87-d8ac-4bd4-8f93-398c3a650bef.jpg" height="32" width="32" class="mb-1"/>
+    Books
+  </a>
+  <a href="{% url 'students' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/9164c743-87f3-41a7-8c92-897c1c7a919e.jpg" height="32" width="32" class="mb-1"/>
+    Students
+  </a>
+  <a href="{% url 'faculties' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/3f1d94ea-c231-4bdc-2e92-6ae5cbec367e.jpg" height="32" width="32" class="mb-1"/>
+    Faculties
+  </a>
+  <a href="{% url 'book_issue' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/bbd1b77f-0b44-4e1e-b73b-c8fcc331e95a.jpg" height="32" width="32" class="mb-1"/>
+    Book Issue
+  </a>
+  <a href="{% url 'book_return' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/055f5718-d37e-4336-1bf5-2f06a3a8f622.jpg" height="32" width="32" class="mb-1"/>
+    Book Return
+  </a>
+  <a href="{% url 'book_search' %}" class="flex flex-col items-center text-xs text-gray-700 font-semibold" style="width: 72px;">
+    <img src="https://storage.googleapis.com/a1aa/image/a69e56d9-fe85-4720-abd2-bde78f85260f.jpg" height="32" width="32" class="mb-1"/>
+    Books Search
+  </a>
+</div>
+
+<!-- Background Image -->
+<div class="w-full">
+  <img src="https://storage.googleapis.com/a1aa/image/8877e3aa-11dd-4f4c-f2b2-893c173175d5.jpg" class="w-full object-cover" height="400" width="900" />
+</div>
+
+<!-- Bottom-right Label -->
+<div class="absolute bottom-2 right-2 bg-white bg-opacity-90 border border-gray-400 rounded px-2 py-0.5 text-blue-800 font-bold text-sm select-none">
+  Library Management System
+</div>
+
+<!-- Content Area -->
+<div class="container mx-auto mt-4">
+  {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

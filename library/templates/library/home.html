@@ -1,0 +1,23 @@
+{% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+  <div class="text-center mt-10 text-xl text-gray-700 font-semibold">
+    Welcome to the Library Management System!
+  </div>
+{% endblock %}
+
+
+{% comment %} login.html {% endcomment %}
+{% comment %} {% extends 'library/base.html' %}
+{% load static %}
+
+{% block content %}
+<h2>Register</h2>
+<form method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Register</button>
+</form>
+<p>Already have an account? <a href="{% url 'login' %}">Login here</a>.</p>
+{% endblock %} {% endcomment %}

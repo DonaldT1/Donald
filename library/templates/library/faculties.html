@@ -1,0 +1,29 @@
+{% extends 'library/base.html' %}
+{% block content %}
+<div class="container mx-auto mt-10">
+  <h2 class="text-2xl font-bold mb-6 text-center">Faculty List</h2>
+
+  {% if faculties %}
+    <table class="min-w-full bg-white border">
+      <thead>
+        <tr>
+          <th class="border px-4 py-2">Name</th>
+          <th class="border px-4 py-2">Email</th>
+          <th class="border px-4 py-2">Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for faculty in faculties %}
+          <tr>
+            <td class="border px-4 py-2">{{ faculty.get_full_name }}</td>
+            <td class="border px-4 py-2">{{ faculty.email }}</td>
+            <td class="border px-4 py-2">{{ faculty.username }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-red-600 text-center mt-4">No faculty members found.</p>
+  {% endif %}
+</div>
+{% endblock %}
